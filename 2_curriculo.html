@@ -32,6 +32,19 @@
         #hrs{
             text-align: center;
         }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline; 
+            margin-right: 5px;
+        }
+        nav ul li a {
+            color: black;
+            font-size: 18px;
+        }
     </style>
 </head>
 <body id="margem">
@@ -41,6 +54,17 @@
     <div id="imagem">
         <img src="image.jpg" alt="Foto">
     </div>
+    <nav>
+        <ul>
+            <li><a href="#objetivo">Objetivo</a></li>
+            <li><a href="#habilidades">Habilidades e Competências</a></li>
+            <li><a href="#form-academica">Formação Acadêmica</a></li>
+            <li><a href="#form-complementar">Formação Complementar</a></li>
+            <li><a href="#idiomas">Idiomas</a></li>
+            <li><a href="#horarios">Horários</a></li>
+        </ul>
+    </nav>
+
     <div>
         <table>
             <tr>
@@ -54,12 +78,12 @@
         </table>
     </div>
 
-    <div>
+    <div id="objetivo">
         <b>Objetivo:</b>
         <p>Procuro como primeira experiência profissional uma oportunidade como programador Júnior.</p>
     </div>
 
-    <div>
+    <div id="habilidades">
         <b>Habilidades e Competências:</b>
         <ul>
             <li>Capacidade de trabalhar em equipe</li>
@@ -70,7 +94,7 @@
         </ul>
     </div>
 
-    <div>
+    <div id="form-academica">
         <b>Formação Acadêmica:</b>
         <ol type="1">
             <li>Análise e Desenvolvimento de Sistemas – IFSC - Finalização prevista para 2026.</li>
@@ -78,7 +102,7 @@
         </ol>
     </div>
 
-    <div>
+    <div id="form-complementar">
         <b>Formação complementar:</b>
         <p>Entra21 JAVA (480 horas) – SENAC Blumenau – Finalização prevista para março de 2024. O programa é financiado pelo governo do estado através da FAPESC e Prefeitura de Blumenau, conta com aulas de Inglês, Desenvolvimento Humano, Empreendedorismo e Inovação, Contabilidade e Finanças e Formação Técnica.</p>
     </div>
@@ -88,7 +112,7 @@
         <p>Inglês – nível intermediário.</p>
     </div>
 
-    <div>
+    <div id="horarios">
         <b>Horários:</b>
         <table id="hrs">
             <tr>
