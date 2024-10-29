@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<head>
+   <title>Exercicio 5</title>
+   <style>
+      /*regra 1*/
+      li {
+         color: red;
+      }
+
+      /*regra 2*/
+      .churras {
+         color: green;
+      }
+
+      /*regra 3*/
+      .fruta {
+         color: gray
+      }
+
+      /*regra 4*/
+      li+li.churras {
+         color: black;
+      }
+
+      /*regra 5*/
+      .churras[draggable="true"] {
+         color: magenta;
+      }
+
+      /*regra 6*/
+      #lip1,
+      #lip2,
+      #lip3 {
+         color: blue
+      }
+
+      /*regra 7*/
+      #lip3.fruta {
+         color: orange
+      }
+
+      /*regra 8*/
+      ol>li.churras#lip5 {
+         color: purple
+      }
+   </style>
+</head>
+
+<body>
+   <ol>
+      <!--item 1-->
+      <li id="lip0">Abacaxi - a cor esta declarada no seletor por elemento da regra 1 e não há seletor para o id #lip0
+      </li>
+      <!--item 2-->
+      <li class="fruta">Melão - gray pois o seletor por classe é o mais específico que o seletor por elemento definido
+         na regra1</li>
+      <!--item 3-->
+      <li id="lip2" class="fruta">Pera - tera a cor azul pois o seletor por id é mais especifico que os seletores por
+         elementos (regra 1) e seletor por classe (regra3)</li>
+      <!--item 4-->
+      <li id="lip3" class="fruta">Uva - cor laranja definida pela regra 7 pois a combinação dos seletores #lip3 e .fruta
+         formam um seletor mais especifico que esses seletores separados</li>
+      <!--item 5-->
+      <li id="lip4" class="fruta">Maçã - cor cinza definida pela regra 3 pois o seletor por elemento da regra 1 e não há
+         uma regra com seletor #lip4</li>
+      <!--item 6-->
+      <li class="churras">Carne - </li>
+      <!--item 7-->
+      <li class="churras">Linguiça</li>
+      <!--item 8-->
+      <li id="lip7" class="churras" draggable="true">Pão de alho</li>
+   </ol>
+</body>
+
+</html>
