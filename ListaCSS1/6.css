@@ -1,0 +1,90 @@
+body {
+    display: flex;
+}
+
+.span {
+    display: inline-block;
+    background-color: #fff;
+    color: #000000;
+    border: 2px solid #000000;
+    border-radius: 50%;
+    margin: 5px 5px 5px 5px;
+    height: 40px;
+    width: 40px;
+    box-shadow: 3px 3px #0000002c;
+    font-size: 18px;
+    text-align: center;
+    align-content: center;
+}
+
+#id1 .span:nth-child(1) {
+    background-color: red;
+}
+
+#id2 .span:nth-child(6) {
+    background-color: green;
+}
+
+#id3 .span:nth-child(2) {
+    background-color: blue;
+}
+
+#id4 .span:nth-child(5) {
+    background-color: pink;
+}
+
+#id5 .span:nth-child(1) {
+    background-color: yellow;
+}
+
+#id5 .span:nth-child(3) {
+    background-color: yellow;
+}
+
+#id5 .span:nth-child(5) {
+    background-color: yellow;
+}
+
+#id6 .span:nth-child(2) {
+    background-color: yellow;
+}
+
+#id6 .span:nth-child(4) {
+    background-color: yellow;
+}
+
+#id6 .span:nth-child(6) {
+    background-color: orange;
+}
+
+#id7 .span:nth-child(4) {
+    background-color: pink;
+}
+
+#id8 .span:nth-child(2) {
+    background-color: brown;
+}
+
+#id8 .span:nth-child(5) {
+    background-color: brown;
+}
+
+#id9 .span:nth-child(1) {
+    background-color: grey;
+}
+
+#id9 .span:nth-child(4) {
+    background-color: grey;
+}
+
+#id10 .span:nth-child(4) {
+    background-color: purple;
+}
+
+#id10 .span:nth-child(5) {
+    background-color: purple;
+}
+
+#id10 .span:nth-child(6) {
+    background-color: purple;
+}

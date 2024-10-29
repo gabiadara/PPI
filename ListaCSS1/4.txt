@@ -1,0 +1,16 @@
+4. Como podemos incluir CSS em documentos HTML?
+
+Existem 3 formas de fazer isso:
+    1. Diretamente no elemento:
+        <p style="color: blue;">Texto em azul</p>
+    2. Dentro do arquivo HTML:
+        <head>
+            <style>
+                p { color: blue; }
+            </style>
+        </head>
+    3. CSS Externo (arquivo .css separado) vinculado da seguinte forma:
+        <head>
+            <link rel="stylesheet" href="styles.css">
+        </head>
+
