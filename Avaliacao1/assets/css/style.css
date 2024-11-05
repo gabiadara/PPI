@@ -12,7 +12,9 @@ body {
 a,
 p,
 input,
-h1 {
+h1,
+h2,
+label {
     font-family: 'Poppins', sans-serif;
     color: #4D4D4D;
     font-weight: 200;
@@ -265,6 +267,69 @@ header input {
     height: auto;
 }
 
+/* Página Contato */
+
+.pagina-contato {
+    display: flex;
+    width: 90%;
+    justify-self: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.pagina-contato h1 {
+    color: #F9866F;
+    font-size: 50px;
+}
+
+.pagina-contato h2 {
+    font-size: 35px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.pagina-contato p,
+label {
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.pagina-contato .formulario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pagina-contato input,
+.pagina-contato textarea {
+    background-color: #FCD9D1;
+    display: flex;
+    border: none;
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+.pagina-contato textarea {
+    height: 150px;
+}
+
+.pagina-contato button {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 15px;
+    background-color: #5EA3A5;
+    border: none;
+}
+
 /* footer */
 
 footer {
@@ -430,6 +495,32 @@ footer a {
         height: auto;
     }
 
+    /* Página Contato */
+
+    .pagina-contato h1 {
+        font-size: 30px;
+    }
+
+    .pagina-contato h2 {
+        font-size: 25px;    
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .pagina-contato p,
+    label {
+        font-size: 18px;    
+    }
+
+    .pagina-contato input,
+    .pagina-contato textarea {
+        height: 30px;
+        margin-bottom: 10px;
+    }
+
+    .pagina-contato textarea {
+        height: 100px;
+    }
 
     /* footer */
 
