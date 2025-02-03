@@ -1,0 +1,1 @@
+O segundo código apresenta problemas na execução pois o javascript está dentro do head no html e não dentro do body onde deveria estar, já que ele deve ser a ultima coisa a ser processada pelo computador, como ele acharia o elemento "output" pelo id se o elemento ainda não foi declarado?
