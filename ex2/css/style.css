@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#display {
+    font-size: 90px;
+    color: beige;
+}
+.conteudo {
+    height: 65vh;
+
+}
+#pausas li{
+    width: 100%;
+}
