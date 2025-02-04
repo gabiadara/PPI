@@ -1,0 +1,14 @@
+#inputBusca::placeholder {
+    color: white;
+}
+.cards {
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    margin-top: 5%;
+}
+
+.cards img {
+    height: 60%;
+    object-fit: contain;
+}
