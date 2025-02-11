@@ -1,16 +1,15 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+#visor{
+    font-size: 100px;
 }
-#display {
-    font-size: 90px;
-    color: beige;
-}
-.conteudo {
-    height: 65vh;
 
+.paradas {
+    height: 60vh;
+    width: 30vw;
+    border-radius: 30px;
+    padding: 5%;
 }
-#pausas li{
-    width: 100%;
+
+
+#divParadas li {
+    font-size: 30px;
 }

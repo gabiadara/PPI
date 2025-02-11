@@ -1,51 +1,50 @@
+const visor = document.getElementById('visor');
+const btn = document.querySelectorAll(".btn");
 
-const resultado = document.querySelector('.resultado');
-const btn = document.querySelectorAll('.btn');
-
-let numAtual = '';
-
-function atualizar(valor) {
-    resultado.textContent = valor || '0';
-}
-
-function limpar() {
-    numAtual = '';
-    atualizar(numAtual);
-}
-
-function alterarSinal() {
-    if (numAtual) {
-        numAtual = numAtual.startsWith('-') 
-            ? numAtual.slice(1) 
-            : '-' + numAtual;
-        atualizar(numAtual);
-    }
-}
+let num = '';
 
 btn.forEach(btn => {
     btn.addEventListener('click', () => {
-        const num = btn.textContent;
+        const numAtual = btn.textContent;
+        const operadores = ['+', '-', '*', '/', '%'];
 
-        if (!isNaN(num) || num === ',') {
-            numAtual += num === ',' ? '.' : num;
-        } else if (num === 'C') {
-            limpar();
-        } else if (num === '+/-') {
-            alterarSinal();
-        } else if (num === '=') {
-            try {
-                numAtual = eval(numAtual).toString();
-                atualizar(numAtual);
+        if (numAtual == 'C') {
+            num = '';
+        } else if (numAtual == 'CE') {
+            num = num.slice(0, -1);
+        } else if(numAtual == '+/-') {
+            trocarSinal();
+        } else if(numAtual == '=') {
+            try{
+                if(operadores.includes(num.slice(-1))) {
+                    return;
+                }
+                num = eval(num).toString();
             } catch {
-                atualizar('Erro');
-                numAtual = '';
+                num = 'ERRO';
+            } 
+        } else {
+            if (operadores.includes(numAtual) && operadores.includes(num.slice(-1))) {
+                return;
             }
-        } else if (['+', '-', '*', '/', '%'].includes(num)) {
-                numAtual += num;
-            }
-
-        atualizar(numAtual);
-    });
+            num += numAtual
+        }
+        atualizar(num);
+    })
 });
+
+
+function atualizar(numAtual) {
+    visor.textContent = numAtual || '0';
+}
+
+function trocarSinal() {
+    if (num) {
+        num = num.startsWith('-') 
+            ? num.slice(1) 
+            : '-' + num;
+        atualizar(num);
+    }
+}
 
 atualizar();

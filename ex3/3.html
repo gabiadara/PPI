@@ -10,22 +10,17 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="container p-3 bg-dark vh-100 " >
-    <div class="d-flex justify-content-center row mt-4 ">
-        <div class="col-9 bg-secondary ">
-            <h1 class="text-light p-3">Bloco de Notas</h1>
+<body class="vh-100 bg-black ">
+    <div class="d-flex align-items-center">
+        <div class="vh-100 w-50 border border-dark">
+            <ul class="vh-100 list-group text-white  overflow-auto" id="notasSalvas"></ul>
         </div>
-
-        <div class="col-4 bg-light text-secondary p-3 ">
-            <ul id="listaNotas" class="lista"></ul>
-        </div>
-
-        <div class="col-6 d-flex flex-column novaNota">
-            <textarea id="notaTexto" class="mt-4" placeholder="Digite sua nota..."></textarea>
-            <button type="button" class="mt-4 btn btn-outline-light" onclick="novaNota()">Salvar Nota</button>
+        <div class="d-flex justify-content-center align-items-center flex-column w-50">
+            <textarea class="form-control bg-dark text-white" id="nova-nota"></textarea>
+            <button id="btn-salvar" type="button" class="w-25 btn btn-outline-light mt-2" onclick="salvarNota()">Salvar Nota</button>
+            <button id="btn-salvar-edicao" type="button" class="w-25 btn btn-outline-light mt-2">Salvar Edições</button>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
 </body>
 

@@ -1,16 +1,11 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+#nova-nota {
+    min-height: 75vh;
+    width: 80%;
+}
+textarea, li {
+    font-size: 20px;
 }
 
-.list-group-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px;
-}
-
-.novaNota{
-    width: 42%;
+#btn-salvar-edicao {
+    display: none;
 }

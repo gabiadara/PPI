@@ -1,80 +1,89 @@
-function obterNotas() {
-    return JSON.parse(localStorage.getItem("notas")) || [];
+const novaNota = document.getElementById("nova-nota");
+const listaNotas = document.getElementById("notasSalvas");
+const btnSalvar = document.getElementById("btn-salvar");
+const bntSalvarEdicao = document.getElementById("btn-salvar-edicao");
+
+let contador = localStorage.getItem("contador") ? Number(localStorage.getItem("contador")) : 0;
+atualizarLista();
+
+function salvarNota() {
+    let texto = novaNota.value;
+
+    if(texto !== "") {
+        localStorage.setItem(contador, texto);
+    
+        contador++;
+        localStorage.setItem("contador", contador);
+        
+        novaNota.value = '';
+
+        atualizarLista();
+    } else {
+        alert("nota inválida");
+    }
 }
 
-function atualizar() {
-    let lista = document.getElementById("listaNotas");
-    
-    lista.innerHTML = "";
-    let notas = obterNotas();
+function atualizarLista(){
+    listaNotas.innerHTML = '';
 
-    notas.forEach((nota, index) => {
-        let li = document.createElement("li");
-        li.className = "list-group-item";
+    Object.keys(localStorage).forEach(key => {
+        if(key !== "contador") {
+            let recuperarNota = localStorage.getItem(key);
+            const novaLinha = document.createElement("li");
+            novaLinha.textContent = recuperarNota;
 
-        let conteudo = document.createElement("span");
-        conteudo.textContent = nota.length > 10 ? nota.substring(0, 10) + "..." : nota;
-        conteudo.style.cursor = "pointer";
+            novaLinha.classList.add("pe-auto","list-group-item", "list-group-item-action", "list-group-item-secondary");
 
-        conteudo.onclick = () => {
-            botaoExcluir.style.display = "none";
-            conteudo.style.display = "none";
-            let input = document.createElement("textarea");
-            input.value = nota;
-            input.className = "form-control";
-            input.addEventListener("keydown", (event) => {
-                if (event.key === "Enter") {
-                    event.preventDefault();
-                    let novaNota = input.value.trim();
-                    if (novaNota !== "") {
-                        notas[index] = novaNota;
-                        localStorage.setItem("notas", JSON.stringify(notas));
-                        atualizar();
-                    } else {
-                        atualizar();
-                    }
+            const divBotoes =  document.createElement("div");
+            divBotoes.style.textAlign = "right";
+
+            const botaoExcluir = document.createElement("button");
+            botaoExcluir.textContent = "Excluir";
+            botaoExcluir.classList.add("btn", "btn-outline-danger", "btn-sm", "ms-1")
+
+            botaoExcluir.onclick = () => {
+                const confirmar = confirm("A nota será permanentemente excluída");
+                if(confirmar) {
+                    localStorage.removeItem(key);
+                    atualizarLista();
                 }
-            });
-            li.appendChild(input);
-            input.focus();
-        };
+            }
 
-        let botaoExcluir = document.createElement("button");
-        botaoExcluir.className = "btn btn-outline-danger btn-sm";
-        botaoExcluir.textContent = "EXCLUIR";
-        botaoExcluir.onclick = (event) => {
-            event.stopPropagation();
-            excluir(index);
-        };
+            const botaoEditar = document.createElement("button");
+            botaoEditar.textContent = "Editar";
+            botaoEditar.classList.add("btn", "btn-outline-dark", "btn-sm");
 
-        li.appendChild(conteudo);
-        li.appendChild(botaoExcluir);
-        lista.appendChild(li);
+            botaoEditar.onclick = () => {
+                btnSalvar.style.display = 'none';
+                bntSalvarEdicao.style.display = 'inline-block';
+    
+                editarNota(key);
+            }
+
+            divBotoes.appendChild(botaoEditar);
+            divBotoes.appendChild(botaoExcluir);
+
+            novaLinha.appendChild(divBotoes);
+            listaNotas.appendChild(novaLinha);
+        }
     });
 }
-function novaNota() {
-    let novaNota = document.getElementById("notaTexto").value.trim();
 
-    if(novaNota == ""){
-        alert("Nada para salvar por aqui!");
-        return;
-    }
+function editarNota(key) {
+    novaNota.value = localStorage.getItem(key);
+    
+    bntSalvarEdicao.onclick = () => {
+        let texto = novaNota.value;
 
-    let notas = obterNotas();
-    notas.push(novaNota);
-    localStorage.setItem("notas", JSON.stringify(notas));
+        if(texto !== "") {
+            localStorage.setItem(key, texto);
+    
+            novaNota.value = '';
+    
+            btnSalvar.style.display = 'inline-block';
+            bntSalvarEdicao.style.display = 'none';
 
-    document.getElementById("notaTexto").value = "";
-    atualizar();
-}
-
-function excluir(index) {
-    if (confirm("Tem certeza que deseja excluir esta nota?")) {
-        let notas = obterNotas();
-        notas.splice(index, 1);
-        localStorage.setItem("notas", JSON.stringify(notas));
-        atualizar();
+            atualizarLista();
+        }
     }
 }
-
-document.addEventListener("DOMContentLoaded", atualizar);

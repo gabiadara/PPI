@@ -1,18 +1,19 @@
-
 .calculadora {
-    width: 18vw;
-    background-color: #e863b7;
-    border: 3px solid #c9007f;
+    background-color: #d3248d;
     border-radius: 10px;
+    border: 6px solid #ce097f;
+    padding: 1%;
 }
 
-.resultado {
-    font-size: 30px;
+.calculadora button {
+    margin: 3px;
+    width: 4vw;
+    height: 7vh;
+    font-size: 22px;
+}
+#visor {
+    font-size: 50px;
     height: 10vh;
-}
-
-button {
-    height: 50px;
-    margin: 0px 2px 2px 0px;
-    font-size: 1.5rem;
+    max-width: 25vw;
+    margin-bottom: 2%;
 }
